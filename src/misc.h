@@ -100,5 +100,13 @@ static zend_always_inline int ut_moduleIsStarted(char *name, size_t len)
 	return 1;
 }
 
+/*-----------------------------------------------------*/
+
+static zend_always_inline void ut_exit(int status TSRMLS_DC)
+{
+	EG(exit_status) = status;
+	zend_bailout();
+}
+
 /*============================================================================*/
 #endif	/* __PECL_UTILS_MISC_H */
