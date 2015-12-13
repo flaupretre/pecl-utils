@@ -41,6 +41,10 @@
 
 #define IMM_STRL(_str)	_str, sizeof(_str) - 1
 
+/* Additional status values */
+
+#define NOT_FOUND	-2
+
 /*---------------------------------------------------------------*/
 
 static zend_always_inline int ut_is_web()
@@ -98,14 +102,6 @@ static zend_always_inline int ut_moduleIsStarted(char *name, size_t len)
 	}
 
 	return 1;
-}
-
-/*-----------------------------------------------------*/
-
-static zend_always_inline void ut_exit(int status TSRMLS_DC)
-{
-	EG(exit_status) = status;
-	zend_bailout();
 }
 
 /*============================================================================*/
